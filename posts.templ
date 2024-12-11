@@ -1,0 +1,49 @@
+package main
+
+import "fmt"
+
+templ Posts(posts []Post) {
+   <style type="text/css">
+        .post {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border-radius: 20px;
+            background-color: rgba(65, 212, 212, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .post__image {
+            width: 50px;
+            height: 50px;
+        }
+
+        .post__title {
+            font-weight: bold;
+        }
+
+        .post__body {
+            margin-top: 5px;
+        }
+    </style>
+
+    <div>
+        for idx, post := range posts {
+            <div class="post">
+                <img class="post__image" src={post.Photo} alt="Post Image"/>
+
+               <div class="group">
+                    <div class="post__id">{fmt.Sprintf("%d", idx)}</div>
+                    <div class="post__title">{post.Title}</div>
+               </div>
+
+                <div class="post__body">{post.Body}</div>
+            </div>
+        }
+    </div>
+}

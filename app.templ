@@ -1,0 +1,15 @@
+package main
+
+templ App(header HeaderStruct, posts []Post) {
+   <style type="text/css">
+    body {
+      padding: 10px;   
+      margin: 0;
+    }
+    </style>
+
+    <div class="app">
+      @Header(header.Links)
+      @Posts(posts)
+    </div>
+}
